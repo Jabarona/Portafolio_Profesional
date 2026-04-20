@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# Portafolio Profesional Moderno
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un portafolio web interactivo, dinámico y de alto rendimiento, diseñado para destacar habilidades y proyectos con una interfaz de usuario premium. Construido con las herramientas más modernas del ecosistema de React.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend Framework:** React 19 con Vite (TypeScript)
+- **Estilos:** TailwindCSS (v4)
+- **Animaciones:** Framer Motion
+- **Iconos:** Lucide React
+- **Base de Datos (BaaS):** Firebase Firestore (para almacenar mensajes de contacto)
+- **Servicio de Correo:** Web3Forms (para recibir notificaciones de contacto al email)
 
-## React Compiler
+## ✨ Características Principales
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Diseño Premium y Responsivo:** Paleta de colores cuidada, uso de tipografías modernas y adaptabilidad a cualquier tamaño de pantalla.
+2. **Animaciones Fluidas:** Transiciones de entrada, efectos de hover y micro-interacciones utilizando Framer Motion.
+3. **Formulario de Contacto Totalmente Funcional:**
+   - **Almacenamiento Persistente:** Los mensajes enviados se guardan en tiempo real en una base de datos NoSQL (Firebase Firestore).
+   - **Notificaciones por Correo:** Al mismo tiempo que se guarda en la base de datos, el sistema envía un correo electrónico al propietario usando Web3Forms.
+   - **Manejo de Estados:** Indicadores visuales de "Procesando..." y notificaciones de éxito/error.
+4. **Optimización:** Migrado desde HTML estático a un sistema modular de componentes en React, listo para escalar.
 
-## Expanding the ESLint configuration
+## 🛠️ Instalación y Configuración Local
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Clonar el repositorio e instalar dependencias
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/Jabarona/Portafolio_Profesional.git
+cd Portafolio_Profesional
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Configurar Variables de Entorno
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+El proyecto requiere credenciales para conectarse a Firebase y a Web3Forms. 
+Debes crear un archivo `.env` en la raíz del proyecto (puedes basarte en `.env.example`) y completarlo con tus datos:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+# Configuración de Firebase (Consíguelos en tu Consola de Firebase > Project Settings)
+VITE_FIREBASE_API_KEY="tu_api_key"
+VITE_FIREBASE_AUTH_DOMAIN="tu_auth_domain"
+VITE_FIREBASE_PROJECT_ID="tu_project_id"
+VITE_FIREBASE_STORAGE_BUCKET="tu_storage_bucket"
+VITE_FIREBASE_MESSAGING_SENDER_ID="tu_sender_id"
+VITE_FIREBASE_APP_ID="tu_app_id"
+
+# Configuración de Web3Forms (Consíguela en web3forms.com)
+VITE_WEB3FORMS_ACCESS_KEY="tu_access_key"
 ```
+
+### 3. Ejecutar el Servidor de Desarrollo
+
+Una vez configuradas las variables de entorno, puedes iniciar la aplicación:
+
+```bash
+npm run dev
+```
+
+Abre [http://localhost:5173](http://localhost:5173) en tu navegador para ver la aplicación corriendo.
+
+## 📁 Estructura del Proyecto
+
+```text
+/
+├── public/               # Assets estáticos
+├── src/
+│   ├── assets/           # Imágenes y recursos multimedia
+│   ├── components/       # Componentes reutilizables de React (Contact, Navbar, etc.)
+│   ├── lib/              # Configuraciones de librerías externas (Firebase)
+│   ├── index.css         # Estilos globales y directivas de Tailwind
+│   ├── App.tsx           # Componente principal
+│   └── main.tsx          # Punto de entrada de la aplicación
+├── .env.example          # Plantilla de variables de entorno
+├── package.json          # Dependencias y scripts
+├── tailwind.config.js    # (si aplica) Configuración del tema de Tailwind
+└── vite.config.ts        # Configuración del bundler Vite
+```
+
+## 📜 Scripts Disponibles
+
+- `npm run dev`: Inicia el servidor de desarrollo local con Hot Module Replacement (HMR).
+- `npm run build`: Transpila TypeScript y construye el bundle optimizado para producción.
+- `npm run preview`: Levanta un servidor local para previsualizar el build de producción.
+- `npm run lint`: Ejecuta ESLint para buscar problemas en el código.
