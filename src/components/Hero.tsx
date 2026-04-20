@@ -1,6 +1,6 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Cloud } from 'lucide-react';
-import { SnakeGame } from './SnakeGame';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
@@ -18,7 +18,23 @@ export const Hero = () => {
     visible: { opacity: 1, y: 0 }
   };
 
+  const [terminalLines, setTerminalLines] = useState<number>(0);
 
+  useEffect(() => {
+    const timer1 = setTimeout(() => setTerminalLines(1), 800);
+    const timer2 = setTimeout(() => setTerminalLines(2), 1800);
+    const timer3 = setTimeout(() => setTerminalLines(3), 2800);
+    const timer4 = setTimeout(() => setTerminalLines(4), 3800);
+    const timer5 = setTimeout(() => setTerminalLines(5), 4800);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(timer4);
+      clearTimeout(timer5);
+    };
+  }, []);
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center px-8 py-20 overflow-hidden" id="inicio">
@@ -62,13 +78,58 @@ export const Hero = () => {
 
         <motion.div
           className="lg:col-span-5 relative"
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
-          {/* Snake Game Area */}
+          {/* Hacker Terminal */}
           <div className="w-full flex justify-center lg:justify-end">
-            <SnakeGame />
+            <div className="w-full max-w-[500px] bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/20 shadow-2xl">
+              {/* Terminal Header */}
+              <div className="bg-surface-container-high px-4 py-3 flex items-center gap-2 border-b border-outline-variant/10">
+                <div className="w-3 h-3 rounded-full bg-error/80"></div>
+                <div className="w-3 h-3 rounded-full bg-[#f5a623]/80"></div>
+                <div className="w-3 h-3 rounded-full bg-[#7ed321]/80"></div>
+                <span className="ml-2 text-[10px] font-mono text-outline uppercase tracking-widest flex-1 text-center pr-8">Jarvi_Terminal_tty1</span>
+              </div>
+              {/* Terminal Body */}
+              <div className="p-6 font-mono text-sm md:text-base leading-loose text-on-surface-variant h-[280px] flex flex-col">
+                {terminalLines >= 1 && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-primary">
+                    {t('hero.terminal.init')}
+                  </motion.div>
+                )}
+                {terminalLines >= 2 && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-on-surface">
+                    {t('hero.terminal.auth')}
+                  </motion.div>
+                )}
+                {terminalLines >= 3 && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-on-surface">
+                    {t('hero.terminal.role')}
+                  </motion.div>
+                )}
+                {terminalLines >= 4 && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-on-surface">
+                    {t('hero.terminal.modules')}
+                  </motion.div>
+                )}
+                {terminalLines >= 5 && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-primary-container font-bold">
+                    {t('hero.terminal.status')}
+                  </motion.div>
+                )}
+                
+                {/* Blinking Cursor */}
+                {terminalLines < 5 && (
+                  <motion.div 
+                    animate={{ opacity: [1, 0] }} 
+                    transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }} 
+                    className="w-2.5 h-5 bg-primary inline-block mt-2 align-middle"
+                  />
+                )}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -5,6 +5,7 @@ import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { LanguageProvider } from './context/LanguageContext';
+import { SnakeGame } from './components/SnakeGame';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <main className="pt-20">
           <Hero />
           <Projects />
+          <SnakeGame />
           <About />
           <Contact />
         </main>

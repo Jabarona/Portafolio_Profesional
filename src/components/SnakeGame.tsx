@@ -181,185 +181,203 @@ export const SnakeGame = () => {
   const foodColor = SKILLS[food.skillIndex].color;
 
   return (
-    <div className="w-full max-w-[500px] mx-auto bg-surface-container-low rounded-3xl border border-outline-variant/10 overflow-hidden shadow-2xl flex flex-col items-center">
-      
-      {/* Header del juego */}
-      <div className="w-full bg-surface-container-high px-6 py-4 flex justify-between items-center border-b border-outline-variant/10">
-        <div className="flex flex-col">
-          <span className="text-[10px] font-mono text-outline uppercase tracking-widest">{t('snake.score')}</span>
-          <span className="text-2xl font-bold text-primary">{score}</span>
-        </div>
-        <div className="flex flex-col text-right">
-          <span className="text-[10px] font-mono text-outline uppercase tracking-widest">{t('snake.highScore')}</span>
-          <span className="text-xl font-bold text-on-surface-variant">{highScore}</span>
-        </div>
-      </div>
-
-      {/* Área del tablero */}
-      <div className="relative w-full aspect-square bg-surface-container-lowest flex items-center justify-center p-4">
-        
-        {/* Tablero (Grid) */}
-        <div 
-          className="relative w-full h-full bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/5 shadow-inner"
-          style={{ 
-            display: 'grid', 
-            gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
-            gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`
-          }}
+    <section className="py-32 px-8 relative bg-surface-container-lowest" id="habilidades">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          {/* Renderizar Serpiente */}
-          {snake.map((segment, i) => {
-            const isHead = i === 0;
-            return (
-              <motion.div
-                key={`${segment.x}-${segment.y}-${i}`}
-                initial={isHead ? { scale: 0.8, opacity: 0 } : false}
-                animate={{ scale: 1, opacity: 1 }}
-                className={`w-full h-full ${isHead ? 'bg-primary' : 'bg-primary/70'} rounded-sm`}
-                style={{
-                  gridColumnStart: segment.x + 1,
-                  gridRowStart: segment.y + 1,
-                  zIndex: isHead ? 10 : 5,
-                }}
-              />
-            );
-          })}
+          <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6 tracking-tight">
+            {t('snake.section.title1')} <span className="text-primary-container">{t('snake.section.title2')}</span>
+          </h2>
+          <p className="text-on-surface-variant text-lg max-w-xl mx-auto">
+            {t('snake.section.desc')}
+          </p>
+        </motion.div>
 
-          {/* Renderizar Comida */}
-          <motion.div
-            key={`food-${score}`}
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            className="w-full h-full flex items-center justify-center"
-            style={{
-              gridColumnStart: food.x + 1,
-              gridRowStart: food.y + 1,
-              zIndex: 8,
-            }}
-          >
-            <div 
-              className="w-[85%] h-[85%] rounded bg-surface-container-high flex items-center justify-center shadow-lg border border-outline-variant/10 animate-pulse"
-              style={{ boxShadow: `0 0 10px ${foodColor}40` }}
-            >
-              <FoodIcon className="w-[60%] h-[60%]" style={{ color: foodColor }} />
+        <div className="w-full max-w-[500px] bg-surface-container-low rounded-3xl border border-outline-variant/10 overflow-hidden shadow-2xl flex flex-col items-center">
+          
+          {/* Header del juego */}
+          <div className="w-full bg-surface-container-high px-6 py-4 flex justify-between items-center border-b border-outline-variant/10">
+            <div className="flex flex-col">
+              <span className="text-[10px] font-mono text-outline uppercase tracking-widest">{t('snake.score')}</span>
+              <span className="text-2xl font-bold text-primary">{score}</span>
             </div>
-          </motion.div>
-        </div>
+            <div className="flex flex-col text-right">
+              <span className="text-[10px] font-mono text-outline uppercase tracking-widest">{t('snake.highScore')}</span>
+              <span className="text-xl font-bold text-on-surface-variant">{highScore}</span>
+            </div>
+          </div>
 
-        {/* Overlays de Menú */}
-        <AnimatePresence>
-          {status !== 'playing' && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-background/90 backdrop-blur-sm flex flex-col items-center justify-center z-20 p-4"
+          {/* Área del tablero */}
+          <div className="relative w-full aspect-square bg-surface-container-lowest flex items-center justify-center p-4">
+            
+            {/* Tablero (Grid) */}
+            <div 
+              className="relative w-full h-full bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/5 shadow-inner"
+              style={{ 
+                display: 'grid', 
+                gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
+                gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`
+              }}
             >
-              {status === 'game_over' && !showGameOverSkills && (
+              {/* Renderizar Serpiente */}
+              {snake.map((segment, i) => {
+                const isHead = i === 0;
+                return (
+                  <motion.div
+                    key={`${segment.x}-${segment.y}-${i}`}
+                    initial={isHead ? { scale: 0.8, opacity: 0 } : false}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className={`w-full h-full ${isHead ? 'bg-primary' : 'bg-primary/70'} rounded-sm`}
+                    style={{
+                      gridColumnStart: segment.x + 1,
+                      gridRowStart: segment.y + 1,
+                      zIndex: isHead ? 10 : 5,
+                    }}
+                  />
+                );
+              })}
+
+              {/* Renderizar Comida */}
+              <motion.div
+                key={`food-${score}`}
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                className="w-full h-full flex items-center justify-center"
+                style={{
+                  gridColumnStart: food.x + 1,
+                  gridRowStart: food.y + 1,
+                  zIndex: 8,
+                }}
+              >
+                <div 
+                  className="w-[85%] h-[85%] rounded bg-surface-container-high flex items-center justify-center shadow-lg border border-outline-variant/10 animate-pulse"
+                  style={{ boxShadow: `0 0 10px ${foodColor}40` }}
+                >
+                  <FoodIcon className="w-[60%] h-[60%]" style={{ color: foodColor }} />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Overlays de Menú */}
+            <AnimatePresence>
+              {status !== 'playing' && (
                 <motion.div 
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  className="flex flex-col items-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 bg-background/90 backdrop-blur-sm flex flex-col items-center justify-center z-20 p-4"
                 >
-                  <h3 className="text-2xl font-bold text-error mb-2">
-                    {t('snake.title')}
-                  </h3>
-                  <p className="text-on-surface-variant text-sm mb-6 text-center font-mono">
-                    {t('snake.desc1')} {score} {t('snake.desc2')}
-                  </p>
-                  <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mt-4 opacity-50"></div>
-                </motion.div>
-              )}
+                  {status === 'game_over' && !showGameOverSkills && (
+                    <motion.div 
+                      initial={{ y: -20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      className="flex flex-col items-center"
+                    >
+                      <h3 className="text-2xl font-bold text-error mb-2">
+                        {t('snake.title')}
+                      </h3>
+                      <p className="text-on-surface-variant text-sm mb-6 text-center font-mono">
+                        {t('snake.desc1')} {score} {t('snake.desc2')}
+                      </p>
+                      <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mt-4 opacity-50"></div>
+                    </motion.div>
+                  )}
 
-              {status === 'game_over' && showGameOverSkills && (
-                <motion.div
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="flex flex-col items-center w-full"
-                >
-                  <h3 className="text-lg font-bold text-primary mb-4 text-center">
-                    {t('snake.skillsTitle')}
-                  </h3>
-                  <div className="flex flex-wrap justify-center gap-3 mb-6 max-h-[220px] overflow-y-auto w-full px-2 py-1 custom-scrollbar">
-                    {SKILLS.map(skill => {
-                      const SIcon = skill.icon;
-                      return (
-                        <div key={skill.label} className="flex items-center gap-1.5 md:gap-2 bg-surface-container-highest px-2 py-1.5 md:px-3 md:py-2 rounded-lg border border-outline-variant/10 shadow-sm hover:border-primary/30 transition-colors cursor-default">
-                           <SIcon className="w-4 h-4 md:w-5 md:h-5 drop-shadow-sm" style={{ color: skill.color }} />
-                           <span className="text-[10px] md:text-xs font-bold text-on-surface-variant uppercase tracking-wider">{skill.label}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <button
-                    onClick={startGame}
-                    className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-on-primary px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
-                  >
-                    <RotateCcw className="w-5 h-5" />
-                    {t('snake.playAgain')}
-                  </button>
+                  {status === 'game_over' && showGameOverSkills && (
+                    <motion.div
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      className="flex flex-col items-center w-full"
+                    >
+                      <h3 className="text-lg font-bold text-primary mb-4 text-center">
+                        {t('snake.skillsTitle')}
+                      </h3>
+                      <div className="flex flex-wrap justify-center gap-3 mb-6 max-h-[220px] overflow-y-auto w-full px-2 py-1 custom-scrollbar">
+                        {SKILLS.map(skill => {
+                          const SIcon = skill.icon;
+                          return (
+                            <div key={skill.label} className="flex items-center gap-1.5 md:gap-2 bg-surface-container-highest px-2 py-1.5 md:px-3 md:py-2 rounded-lg border border-outline-variant/10 shadow-sm hover:border-primary/30 transition-colors cursor-default">
+                               <SIcon className="w-4 h-4 md:w-5 md:h-5 drop-shadow-sm" style={{ color: skill.color }} />
+                               <span className="text-[10px] md:text-xs font-bold text-on-surface-variant uppercase tracking-wider">{skill.label}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <button
+                        onClick={startGame}
+                        className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-on-primary px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
+                      >
+                        <RotateCcw className="w-5 h-5" />
+                        {t('snake.playAgain')}
+                      </button>
+                    </motion.div>
+                  )}
+                  
+                  {status === 'idle' && (
+                    <motion.div className="flex flex-col items-center">
+                      <p className="text-on-surface-variant text-sm mb-6 max-w-[250px] text-center font-mono">
+                        {t('snake.startDesc')}
+                      </p>
+                      <button
+                        onClick={startGame}
+                        className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-on-primary px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
+                      >
+                        <Play className="w-5 h-5" />
+                        {t('snake.startBtn')}
+                      </button>
+                    </motion.div>
+                  )}
                 </motion.div>
               )}
-              
-              {status === 'idle' && (
-                <motion.div className="flex flex-col items-center">
-                  <p className="text-on-surface-variant text-sm mb-6 max-w-[250px] text-center font-mono">
-                    {t('snake.startDesc')}
-                  </p>
-                  <button
-                    onClick={startGame}
-                    className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-on-primary px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
-                  >
-                    <Play className="w-5 h-5" />
-                    {t('snake.startBtn')}
-                  </button>
-                </motion.div>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+            </AnimatePresence>
+          </div>
 
-      {/* Controles para Móviles */}
-      <div className="w-full p-4 bg-surface-container-high border-t border-outline-variant/10 md:hidden flex justify-center gap-2">
-        <div className="grid grid-cols-3 grid-rows-2 gap-2 max-w-[200px] w-full">
-          <div /> {/* Espacio vacío arriba izquierda */}
-          <button 
-            className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
-            onClick={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: -1 }); }}
-            onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: -1 }); }}
-          >
-            <FaChevronUp />
-          </button>
-          <div /> {/* Espacio vacío arriba derecha */}
-          <button 
-            className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
-            onClick={(e) => { e.preventDefault(); handleMobileControl({ x: -1, y: 0 }); }}
-            onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: -1, y: 0 }); }}
-          >
-            <FaChevronLeft />
-          </button>
-          <button 
-            className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
-            onClick={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: 1 }); }}
-            onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: 1 }); }}
-          >
-            <FaChevronDown />
-          </button>
-          <button 
-            className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
-            onClick={(e) => { e.preventDefault(); handleMobileControl({ x: 1, y: 0 }); }}
-            onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: 1, y: 0 }); }}
-          >
-            <FaChevronRight />
-          </button>
+          {/* Controles para Móviles */}
+          <div className="w-full p-4 bg-surface-container-high border-t border-outline-variant/10 md:hidden flex justify-center gap-2">
+            <div className="grid grid-cols-3 grid-rows-2 gap-2 max-w-[200px] w-full">
+              <div /> {/* Espacio vacío arriba izquierda */}
+              <button 
+                className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
+                onClick={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: -1 }); }}
+                onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: -1 }); }}
+              >
+                <FaChevronUp />
+              </button>
+              <div /> {/* Espacio vacío arriba derecha */}
+              <button 
+                className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
+                onClick={(e) => { e.preventDefault(); handleMobileControl({ x: -1, y: 0 }); }}
+                onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: -1, y: 0 }); }}
+              >
+                <FaChevronLeft />
+              </button>
+              <button 
+                className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
+                onClick={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: 1 }); }}
+                onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: 1 }); }}
+              >
+                <FaChevronDown />
+              </button>
+              <button 
+                className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
+                onClick={(e) => { e.preventDefault(); handleMobileControl({ x: 1, y: 0 }); }}
+                onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: 1, y: 0 }); }}
+              >
+                <FaChevronRight />
+              </button>
+            </div>
+          </div>
+          
+          {/* Indicador de controles en Escritorio */}
+          <div className="hidden md:flex w-full py-3 bg-surface-container-high border-t border-outline-variant/10 justify-center items-center gap-4 text-xs font-mono text-outline">
+            <span>{t('snake.desktopHint')}</span>
+          </div>
         </div>
       </div>
-      
-      {/* Indicador de controles en Escritorio */}
-      <div className="hidden md:flex w-full py-3 bg-surface-container-high border-t border-outline-variant/10 justify-center items-center gap-4 text-xs font-mono text-outline">
-        <span>{t('snake.desktopHint')}</span>
-      </div>
-    </div>
+    </section>
   );
 };

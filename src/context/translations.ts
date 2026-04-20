@@ -9,9 +9,14 @@ export const translations = {
 
     // Hero
     'hero.badge': 'Sistema En Línea',
-    'hero.title.1': 'Diseñando Arquitecturas',
-    'hero.title.2': 'Lógicas',
-    'hero.subtitle': 'Construyo sistemas distribuidos y resilientes que acortan la brecha entre la lógica abstracta y la ejecución de alto rendimiento.',
+    'hero.title.1': 'Jarvi Stevel',
+    'hero.title.2': 'Barona',
+    'hero.subtitle': 'Ingeniero Informático con visión integral y capacidad para transformar la complejidad técnica en soluciones escalables. Me especializo en diseñar arquitecturas robustas que aportan valor estratégico a través de la tecnología, la seguridad y los datos.',
+    'hero.terminal.init': '> Iniciando JarviOS v2.0...',
+    'hero.terminal.auth': '> Autenticando perfil... [OK]',
+    'hero.terminal.role': '> Rol: Ingeniero Informático',
+    'hero.terminal.modules': '> Cargando módulos de Arquitectura y Datos... [OK]',
+    'hero.terminal.status': '> Sistema En Línea.',
 
     // SnakeGame
     'snake.title': '¡Juego Terminado!',
@@ -24,6 +29,9 @@ export const translations = {
     'snake.score': 'Habilidades Obtenidas',
     'snake.highScore': 'Mejor Récord',
     'snake.desktopHint': 'Usa WASD o Flechas para jugar',
+    'snake.section.title1': 'Interacción',
+    'snake.section.title2': 'Técnica',
+    'snake.section.desc': 'Relájate un momento y atrapa las tecnologías para descubrir mi stack técnico.',
 
     // Projects
     'projects.title1': 'Proyectos',
@@ -88,9 +96,14 @@ export const translations = {
 
     // Hero
     'hero.badge': 'Online System',
-    'hero.title.1': 'Architecting Logical',
-    'hero.title.2': 'Systems',
-    'hero.subtitle': 'I build resilient distributed systems that bridge the gap between abstract logic and high-performance execution.',
+    'hero.title.1': 'Jarvi Stevel',
+    'hero.title.2': 'Barona',
+    'hero.subtitle': 'Computer Engineer with a comprehensive vision and the ability to transform technical complexity into scalable solutions. I specialize in designing robust architectures that bring strategic value through technology, security, and data.',
+    'hero.terminal.init': '> Booting JarviOS v2.0...',
+    'hero.terminal.auth': '> Authenticating profile... [OK]',
+    'hero.terminal.role': '> Role: Software Engineer',
+    'hero.terminal.modules': '> Loading Architecture and Data modules... [OK]',
+    'hero.terminal.status': '> System Online.',
 
     // SnakeGame
     'snake.title': 'Game Over!',
@@ -103,6 +116,9 @@ export const translations = {
     'snake.score': 'Skills Acquired',
     'snake.highScore': 'High Score',
     'snake.desktopHint': 'Use WASD or Arrows to play',
+    'snake.section.title1': 'Technical',
+    'snake.section.title2': 'Interaction',
+    'snake.section.desc': 'Take a moment to relax and catch technologies to discover my technical stack.',
 
     // Projects
     'projects.title1': 'Featured',
