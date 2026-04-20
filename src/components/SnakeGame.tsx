@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SiPython, SiReact, SiNodedotjs, SiDocker, SiPostgresql, SiHtml5, SiJavascript, SiBootstrap, SiDjango } from 'react-icons/si';
 import { FaAws, FaChartBar, FaChevronUp, FaChevronDown, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Play, RotateCcw } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const SKILLS = [
   { icon: SiPython, label: 'Python', color: '#3776AB' },
@@ -34,6 +35,7 @@ export const SnakeGame = () => {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [showGameOverSkills, setShowGameOverSkills] = useState(false);
+  const { t } = useLanguage();
   
   // Usamos ref para la dirección actual para evitar bugs al presionar teclas muy rápido
   const directionRef = useRef(direction);
@@ -184,11 +186,11 @@ export const SnakeGame = () => {
       {/* Header del juego */}
       <div className="w-full bg-surface-container-high px-6 py-4 flex justify-between items-center border-b border-outline-variant/10">
         <div className="flex flex-col">
-          <span className="text-[10px] font-mono text-outline uppercase tracking-widest">Habilidades Obtenidas</span>
+          <span className="text-[10px] font-mono text-outline uppercase tracking-widest">{t('snake.score')}</span>
           <span className="text-2xl font-bold text-primary">{score}</span>
         </div>
         <div className="flex flex-col text-right">
-          <span className="text-[10px] font-mono text-outline uppercase tracking-widest">Mejor Récord</span>
+          <span className="text-[10px] font-mono text-outline uppercase tracking-widest">{t('snake.highScore')}</span>
           <span className="text-xl font-bold text-on-surface-variant">{highScore}</span>
         </div>
       </div>
@@ -260,10 +262,10 @@ export const SnakeGame = () => {
                   className="flex flex-col items-center"
                 >
                   <h3 className="text-2xl font-bold text-error mb-2">
-                    ¡Juego Terminado!
+                    {t('snake.title')}
                   </h3>
                   <p className="text-on-surface-variant text-sm mb-6 text-center font-mono">
-                    Lograste dominar {score} habilidades.
+                    {t('snake.desc1')} {score} {t('snake.desc2')}
                   </p>
                   <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mt-4 opacity-50"></div>
                 </motion.div>
@@ -276,7 +278,7 @@ export const SnakeGame = () => {
                   className="flex flex-col items-center w-full"
                 >
                   <h3 className="text-lg font-bold text-primary mb-4 text-center">
-                    Habilidades que desarrollo
+                    {t('snake.skillsTitle')}
                   </h3>
                   <div className="flex flex-wrap justify-center gap-3 mb-6 max-h-[220px] overflow-y-auto w-full px-2 py-1 custom-scrollbar">
                     {SKILLS.map(skill => {
@@ -294,7 +296,7 @@ export const SnakeGame = () => {
                     className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-on-primary px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
                   >
                     <RotateCcw className="w-5 h-5" />
-                    Volver a Jugar
+                    {t('snake.playAgain')}
                   </button>
                 </motion.div>
               )}
@@ -302,14 +304,14 @@ export const SnakeGame = () => {
               {status === 'idle' && (
                 <motion.div className="flex flex-col items-center">
                   <p className="text-on-surface-variant text-sm mb-6 max-w-[250px] text-center font-mono">
-                    Atrapa las tecnologías para agregarlas a tu stack.
+                    {t('snake.startDesc')}
                   </p>
                   <button
                     onClick={startGame}
                     className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-on-primary px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
                   >
                     <Play className="w-5 h-5" />
-                    Iniciar Juego
+                    {t('snake.startBtn')}
                   </button>
                 </motion.div>
               )}
@@ -356,7 +358,7 @@ export const SnakeGame = () => {
       
       {/* Indicador de controles en Escritorio */}
       <div className="hidden md:flex w-full py-3 bg-surface-container-high border-t border-outline-variant/10 justify-center items-center gap-4 text-xs font-mono text-outline">
-        <span>Usa WASD o Flechas para jugar</span>
+        <span>{t('snake.desktopHint')}</span>
       </div>
     </div>
   );

@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Terminal, Cloud } from 'lucide-react';
 import { SnakeGame } from './SnakeGame';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
+  const { t } = useLanguage();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,15 +37,15 @@ export const Hero = () => {
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/20">
             <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-primary">Sistema En Línea</span>
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-primary">{t('hero.badge')}</span>
           </motion.div>
 
           <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-headline font-bold text-on-surface leading-[0.95] tracking-tighter">
-            Diseñando Arquitecturas <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Lógicas</span>
+            {t('hero.title.1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">{t('hero.title.2')}</span>
           </motion.h1>
 
           <motion.p variants={itemVariants} className="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
-            Construyo sistemas distribuidos y resilientes que acortan la brecha entre la lógica abstracta y la ejecución de alto rendimiento.
+            {t('hero.subtitle')}
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">

@@ -13,13 +13,15 @@ Este es un portafolio web interactivo, dinámico y de alto rendimiento, diseñad
 
 ## ✨ Características Principales
 
-1. **Diseño Premium y Responsivo:** Paleta de colores cuidada, uso de tipografías modernas y adaptabilidad a cualquier tamaño de pantalla.
-2. **Animaciones Fluidas:** Transiciones de entrada, efectos de hover y micro-interacciones utilizando Framer Motion.
-3. **Formulario de Contacto Totalmente Funcional:**
+1. **Soporte Multi-idioma (i18n):** Sistema de internacionalización nativo y ultra-rápido usando React Context que permite alternar entre Español e Inglés instantáneamente con botones en la barra de navegación. Recuerda la preferencia del usuario en `localStorage`.
+2. **Gamificación Integrada (Snake Skills):** La sección principal (*Hero*) cuenta con un mini-juego interactivo de la Serpiente (*Snake*). En lugar de simples listas de texto, el usuario atrapa iconos de tecnologías (Python, AWS, React, Django, etc.) para armar un "stack" de habilidades, mostrando un resumen visual e interactivo al perder. Cuenta con controles táctiles (D-pad) para dispositivos móviles y teclado para escritorio.
+3. **Interacciones Dinámicas:** 
+   - **Sobre Mí:** Fotografía de perfil interactiva que rota suavemente entre múltiples imágenes al hacer clic usando `framer-motion`.
+   - **Diseño Premium:** Paleta de colores cuidada, estilo glassmorphism, uso de tipografías modernas y adaptabilidad total a cualquier dispositivo.
+4. **Formulario de Contacto Totalmente Funcional:**
    - **Almacenamiento Persistente:** Los mensajes enviados se guardan en tiempo real en una base de datos NoSQL (Firebase Firestore).
-   - **Notificaciones por Correo:** Al mismo tiempo que se guarda en la base de datos, el sistema envía un correo electrónico al propietario usando Web3Forms.
-   - **Manejo de Estados:** Indicadores visuales de "Procesando..." y notificaciones de éxito/error.
-4. **Optimización:** Migrado desde HTML estático a un sistema modular de componentes en React, listo para escalar.
+   - **Notificaciones por Correo:** Se envía un correo electrónico al propietario usando Web3Forms al momento de recibir un nuevo mensaje.
+   - **Manejo de Estados:** Indicadores visuales de carga, validación y notificaciones bilingües de éxito/error.
 
 ## 🛠️ Instalación y Configuración Local
 
@@ -68,14 +70,15 @@ Abre [http://localhost:5173](http://localhost:5173) en tu navegador para ver la 
 ├── public/               # Assets estáticos
 ├── src/
 │   ├── assets/           # Imágenes y recursos multimedia
-│   ├── components/       # Componentes reutilizables de React (Contact, Navbar, etc.)
-│   ├── lib/              # Configuraciones de librerías externas (Firebase)
-│   ├── index.css         # Estilos globales y directivas de Tailwind
-│   ├── App.tsx           # Componente principal
+│   ├── components/       # Componentes reutilizables (SnakeGame, Navbar, Hero, etc.)
+│   ├── context/          # Motor de idioma global (LanguageContext.tsx, translations.ts)
+│   ├── lib/              # Configuraciones de integraciones externas (Firebase)
+│   ├── index.css         # Estilos globales y utilidades de Tailwind
+│   ├── App.tsx           # Componente principal envolviendo el Provider de idioma
 │   └── main.tsx          # Punto de entrada de la aplicación
 ├── .env.example          # Plantilla de variables de entorno
 ├── package.json          # Dependencias y scripts
-├── tailwind.config.js    # (si aplica) Configuración del tema de Tailwind
+├── tailwind.config.js    # Configuración del tema de Tailwind
 └── vite.config.ts        # Configuración del bundler Vite
 ```
 

@@ -4,19 +4,22 @@ import { Projects } from './components/Projects';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   return (
-    <div className="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen">
-      <Navbar />
-      <main className="pt-20">
-        <Hero />
-        <Projects />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+        <Navbar />
+        <main className="pt-20">
+          <Hero />
+          <Projects />
+          <About />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 

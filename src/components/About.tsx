@@ -3,10 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import profileImg1 from '../assets/JarviBarona.jpeg';
 import profileImg2 from '../assets/Santiago.webp';
 import profileImg3 from '../assets/hero.png';
+import { useLanguage } from '../context/LanguageContext';
 
 const PHOTOS = [profileImg1, profileImg2, profileImg3];
 
 export const About = () => {
+  const { t } = useLanguage();
   const [photoIndex, setPhotoIndex] = useState(0);
 
   const handlePhotoClick = () => {
@@ -46,9 +48,9 @@ export const About = () => {
                 </div>
               </div>
               <div className="mt-12 space-y-6">
-                <h2 className="text-4xl font-headline font-bold leading-none">Ingeniería en Bases <span className="text-primary">Digitales</span></h2>
+                <h2 className="text-4xl font-headline font-bold leading-none">{t('about.title1')} <span className="text-primary">{t('about.title2')}</span></h2>
                 <p className="text-on-surface-variant leading-relaxed">
-                  Soy un Ingeniero de Software Senior enfocado en la intersección de la infraestructura y la fiabilidad del producto. Mi enfoque se basa en el rigor técnico y la claridad arquitectónica.
+                  {t('about.desc')}
                 </p>
               </div>
             </div>
@@ -63,16 +65,16 @@ export const About = () => {
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               <div className="space-y-6">
-                <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Lenguajes</h4>
+                <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">{t('about.lang')}</h4>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Python / Go</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Rust (Aprendiendo)</li>
+                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Rust</li>
                   <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> TypeScript</li>
                   <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> SQL / NoSQL</li>
                 </ul>
               </div>
               <div className="space-y-6">
-                <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Frameworks</h4>
+                <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">{t('about.frameworks')}</h4>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> React / Next.js</li>
                   <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Node.js / Express</li>
@@ -81,7 +83,7 @@ export const About = () => {
                 </ul>
               </div>
               <div className="space-y-6">
-                <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Herramientas</h4>
+                <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">{t('about.tools')}</h4>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Docker / K8s</li>
                   <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Terraform</li>
@@ -99,7 +101,7 @@ export const About = () => {
                 viewport={{ once: true }}
                 className="text-2xl font-headline font-bold"
               >
-                Rastro de <span className="text-primary-container">Carrera</span>
+                {t('about.trace1')} <span className="text-primary-container">{t('about.trace2')}</span>
               </motion.h3>
               
               <div className="relative pl-8 border-l border-outline-variant/30 space-y-16">
@@ -107,23 +109,23 @@ export const About = () => {
                 {[
                   {
                     period: '2021 — PRESENTE',
-                    title: 'Ingeniero de Infraestructura Líder',
+                    title: t('job.1.title'),
                     company: 'GlobalScale Systems',
-                    desc: 'Arquitecto y gestor de infraestructura multi-nube para +50M de usuarios activos mensuales. Reducción de tiempos de despliegue en un 65% a través de orquestación CI/CD personalizada.',
+                    desc: t('job.1.desc'),
                     active: true
                   },
                   {
                     period: '2018 — 2021',
-                    title: 'Desarrollador de Sistemas Backend',
+                    title: t('job.2.title'),
                     company: 'DataStream Corp',
-                    desc: 'Diseño de pipelines de procesamiento de datos de alto rendimiento. Implementación de sistemas de registro y monitoreo distribuidos usando Prometheus y Grafana.',
+                    desc: t('job.2.desc'),
                     active: false
                   },
                   {
                     period: '2015 — 2018',
-                    title: 'Ingeniero de Software',
+                    title: t('job.3.title'),
                     company: 'Incepto Solutions',
-                    desc: 'Desarrollo full-stack para plataformas SaaS empresariales. Optimización de consultas a bases de datos resultando en una mejora del 40% en los tiempos de respuesta de la API.',
+                    desc: t('job.3.desc'),
                     active: false
                   }
                 ].map((job, idx) => (
