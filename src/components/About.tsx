@@ -1,7 +1,17 @@
-import { motion } from 'framer-motion';
-import profileImg from '../assets/JarviBarona.jpeg';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import profileImg1 from '../assets/JarviBarona.jpeg';
+import profileImg2 from '../assets/Santiago.webp';
+import profileImg3 from '../assets/hero.png';
+
+const PHOTOS = [profileImg1, profileImg2, profileImg3];
 
 export const About = () => {
+  const [photoIndex, setPhotoIndex] = useState(0);
+
+  const handlePhotoClick = () => {
+    setPhotoIndex((prev) => (prev + 1) % PHOTOS.length);
+  };
   return (
     <section className="py-32 px-8 overflow-hidden" id="sobre-mí">
       <div className="max-w-7xl mx-auto">
@@ -17,12 +27,22 @@ export const About = () => {
               <div className="relative aspect-square max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl rotate-6 transition-transform duration-500 hover:rotate-12"></div>
                 <div className="absolute inset-0 border border-primary/20 rounded-xl -rotate-3 transition-transform duration-500 hover:-rotate-6"></div>
-                <div className="relative h-full w-full overflow-hidden rounded-xl bg-surface-container-high shadow-2xl">
-                  <img 
-                    className="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" 
-                    alt="Professional portrait" 
-                    src={profileImg} 
-                  />
+                <div 
+                  className="relative h-full w-full overflow-hidden rounded-xl bg-surface-container-high shadow-2xl cursor-pointer group"
+                  onClick={handlePhotoClick}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      key={photoIndex}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.05 }}
+                      transition={{ duration: 0.4 }}
+                      className="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" 
+                      alt="Professional portrait" 
+                      src={PHOTOS[photoIndex]} 
+                    />
+                  </AnimatePresence>
                 </div>
               </div>
               <div className="mt-12 space-y-6">
