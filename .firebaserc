@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "portafolio-profesional-8e537"
+  },
+  "targets": {
+    "portafolio-profesional-8e537": {
+      "hosting": {
+        "production": [
+          "portafolio-profesional-8e537"
+        ],
+        "staging": [
+          "portafolio-profesional-staging"
+        ]
+      }
+    }
+  }
+}
