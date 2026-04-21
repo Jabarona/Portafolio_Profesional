@@ -32,6 +32,7 @@ export const translations = {
     'snake.section.title1': 'Interacción',
     'snake.section.title2': 'Técnica',
     'snake.section.desc': 'Relájate un momento y atrapa las tecnologías para descubrir mi stack técnico.',
+    'snake.swipeHint': 'Desliza en la pantalla para jugar',
 
     // Projects
     'projects.title1': 'Proyectos',
@@ -119,6 +120,7 @@ export const translations = {
     'snake.section.title1': 'Technical',
     'snake.section.title2': 'Interaction',
     'snake.section.desc': 'Take a moment to relax and catch technologies to discover my technical stack.',
+    'snake.swipeHint': 'Swipe on screen to play',
 
     // Projects
     'projects.title1': 'Featured',

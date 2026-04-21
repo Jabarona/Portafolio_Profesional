@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SiPython, SiReact, SiNodedotjs, SiDocker, SiPostgresql, SiHtml5, SiJavascript, SiBootstrap, SiDjango } from 'react-icons/si';
-import { FaAws, FaChartBar, FaChevronUp, FaChevronDown, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaAws, FaChartBar } from 'react-icons/fa';
 import { Play, RotateCcw } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -177,6 +177,51 @@ export const SnakeGame = () => {
     directionRef.current = newDir;
   };
 
+  // Referencias para el toque táctil (Swipe)
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (status !== 'playing') return;
+    touchStartRef.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY
+    };
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (status !== 'playing' || !touchStartRef.current) return;
+    
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    
+    const deltaX = touchEndX - touchStartRef.current.x;
+    const deltaY = touchEndY - touchStartRef.current.y;
+    
+    // Mínima distancia para considerar que fue un swipe (evita toques accidentales)
+    const minSwipeDistance = 30;
+    
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      // Movimiento horizontal
+      if (Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX > 0) {
+          handleMobileControl({ x: 1, y: 0 }); // Derecha
+        } else {
+          handleMobileControl({ x: -1, y: 0 }); // Izquierda
+        }
+      }
+    } else {
+      // Movimiento vertical
+      if (Math.abs(deltaY) > minSwipeDistance) {
+        if (deltaY > 0) {
+          handleMobileControl({ x: 0, y: 1 }); // Abajo
+        } else {
+          handleMobileControl({ x: 0, y: -1 }); // Arriba
+        }
+      }
+    }
+    touchStartRef.current = null;
+  };
+
   const FoodIcon = SKILLS[food.skillIndex].icon;
   const foodColor = SKILLS[food.skillIndex].color;
 
@@ -212,7 +257,12 @@ export const SnakeGame = () => {
           </div>
 
           {/* Área del tablero */}
-          <div className="relative w-full aspect-square bg-surface-container-lowest flex items-center justify-center p-4">
+          <div 
+            className="relative w-full aspect-square bg-surface-container-lowest flex items-center justify-center p-4"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            style={{ touchAction: status === 'playing' ? 'none' : 'auto' }}
+          >
             
             {/* Tablero (Grid) */}
             <div 
@@ -336,42 +386,12 @@ export const SnakeGame = () => {
             </AnimatePresence>
           </div>
 
-          {/* Controles para Móviles */}
-          <div className="w-full p-4 bg-surface-container-high border-t border-outline-variant/10 md:hidden flex justify-center gap-2">
-            <div className="grid grid-cols-3 grid-rows-2 gap-2 max-w-[200px] w-full">
-              <div /> {/* Espacio vacío arriba izquierda */}
-              <button 
-                className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
-                onClick={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: -1 }); }}
-                onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: -1 }); }}
-              >
-                <FaChevronUp />
-              </button>
-              <div /> {/* Espacio vacío arriba derecha */}
-              <button 
-                className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
-                onClick={(e) => { e.preventDefault(); handleMobileControl({ x: -1, y: 0 }); }}
-                onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: -1, y: 0 }); }}
-              >
-                <FaChevronLeft />
-              </button>
-              <button 
-                className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
-                onClick={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: 1 }); }}
-                onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: 0, y: 1 }); }}
-              >
-                <FaChevronDown />
-              </button>
-              <button 
-                className="bg-surface-container-highest p-4 rounded-xl flex justify-center items-center active:bg-primary active:text-on-primary transition-colors border border-outline-variant/10 shadow-sm"
-                onClick={(e) => { e.preventDefault(); handleMobileControl({ x: 1, y: 0 }); }}
-                onTouchStart={(e) => { e.preventDefault(); handleMobileControl({ x: 1, y: 0 }); }}
-              >
-                <FaChevronRight />
-              </button>
-            </div>
+          {/* Notificador visual para móviles de que deben deslizar */}
+          <div className="w-full p-4 bg-surface-container-high border-t border-outline-variant/10 md:hidden flex justify-center items-center">
+             <span className="text-xs font-mono text-outline uppercase tracking-wider animate-pulse">
+               {t('snake.swipeHint') || 'Desliza para jugar'}
+             </span>
           </div>
-          
           {/* Indicador de controles en Escritorio */}
           <div className="hidden md:flex w-full py-3 bg-surface-container-high border-t border-outline-variant/10 justify-center items-center gap-4 text-xs font-mono text-outline">
             <span>{t('snake.desktopHint')}</span>
