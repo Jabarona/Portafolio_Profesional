@@ -14,7 +14,7 @@ Este es un portafolio web interactivo, dinámico y de alto rendimiento, diseñad
 ## ✨ Características Principales
 
 1. **Soporte Multi-idioma (i18n):** Sistema de internacionalización nativo y ultra-rápido usando React Context que permite alternar entre Español e Inglés instantáneamente con botones en la barra de navegación. Recuerda la preferencia del usuario en `localStorage`.
-2. **Gamificación Integrada (Snake Skills):** La sección principal (*Hero*) cuenta con un mini-juego interactivo de la Serpiente (*Snake*). En lugar de simples listas de texto, el usuario atrapa iconos de tecnologías (Python, AWS, React, Django, etc.) para armar un "stack" de habilidades, mostrando un resumen visual e interactivo al perder. Cuenta con controles táctiles (D-pad) para dispositivos móviles y teclado para escritorio.
+2. **Gamificación Integrada (Snake Skills):** La sección principal (*Hero*) cuenta con un mini-juego interactivo de la Serpiente (*Snake*). En lugar de simples listas de texto, el usuario atrapa iconos de tecnologías (Python, AWS, React, Django, etc.) para armar un "stack" de habilidades, mostrando un resumen visual e interactivo al perder. Cuenta con controles táctiles por gestos (Swipe) para dispositivos móviles y teclado para escritorio.
 3. **Interacciones Dinámicas:** 
    - **Sobre Mí:** Fotografía de perfil interactiva que rota suavemente entre múltiples imágenes al hacer clic usando `framer-motion`.
    - **Diseño Premium:** Paleta de colores cuidada, estilo glassmorphism, uso de tipografías modernas y adaptabilidad total a cualquier dispositivo.
@@ -22,6 +22,13 @@ Este es un portafolio web interactivo, dinámico y de alto rendimiento, diseñad
    - **Almacenamiento Persistente:** Los mensajes enviados se guardan en tiempo real en una base de datos NoSQL (Firebase Firestore).
    - **Notificaciones por Correo:** Se envía un correo electrónico al propietario usando Web3Forms al momento de recibir un nuevo mensaje.
    - **Manejo de Estados:** Indicadores visuales de carga, validación y notificaciones bilingües de éxito/error.
+
+## ☁️ Arquitectura de Despliegue (CI/CD)
+
+Este proyecto implementa un flujo de trabajo profesional de Integración y Despliegue Continuo (CI/CD) utilizando **GitHub Actions** y **Firebase Hosting**, separado en dos entornos:
+
+- **Entorno de Pruebas (Staging):** Todos los cambios enviados a la rama `staging` se despliegan automáticamente en un servidor de pruebas privado, garantizando que las nuevas funcionalidades se validen antes de llegar al público.
+- **Entorno de Producción:** Al fusionar (merge) los cambios aprobados hacia la rama `main`, la aplicación se construye y despliega automáticamente en el dominio principal oficial en vivo.
 
 ## 🛠️ Instalación y Configuración Local
 
