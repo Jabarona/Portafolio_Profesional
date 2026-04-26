@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Cloud } from 'lucide-react';
+import { Terminal, Cloud, Database } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
@@ -68,14 +68,18 @@ export const Hero = () => {
             {t('hero.subtitle')}
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">
-            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10">
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-4">
+            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 hover:border-primary/20 transition-colors cursor-default">
               <Terminal className="w-4 h-4 text-primary-container" />
-              <span className="text-xs font-mono text-on-surface/80">python --version 3.12</span>
+              <span className="text-xs font-mono text-on-surface/80">uptime: +2 años exp</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10">
+            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 hover:border-primary/20 transition-colors cursor-default">
+              <Database className="w-4 h-4 text-primary-container" />
+              <span className="text-xs font-mono text-on-surface/80">stack: Data & AI</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 hover:border-primary/20 transition-colors cursor-default">
               <Cloud className="w-4 h-4 text-primary-container" />
-              <span className="text-xs font-mono text-on-surface/80">aws-region: us-east-1</span>
+              <span className="text-xs font-mono text-on-surface/80">cloud: Azure/GCP</span>
             </div>
           </motion.div>
         </motion.div>
