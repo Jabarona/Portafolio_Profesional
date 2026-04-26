@@ -57,41 +57,6 @@ export const About = () => {
           </motion.div>
 
           <div className="lg:col-span-7 space-y-20">
-            {/* Skill Stack Categorization */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            >
-              <div className="space-y-6">
-                <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">{t('about.lang')}</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Python / Go</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Rust</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> TypeScript</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> SQL / NoSQL</li>
-                </ul>
-              </div>
-              <div className="space-y-6">
-                <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">{t('about.frameworks')}</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> React / Next.js</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Node.js / Express</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Django / FastAPI</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> gRPC / Protobuf</li>
-                </ul>
-              </div>
-              <div className="space-y-6">
-                <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">{t('about.tools')}</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Docker / K8s</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> Terraform</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> AWS / GCP</li>
-                  <li className="flex items-center gap-3 text-sm font-medium"><span className="w-1.5 h-1.5 bg-primary-container rounded-full"></span> CI/CD Pipelines</li>
-                </ul>
-              </div>
-            </motion.div>
 
             {/* Career Trace Timeline */}
             <div className="space-y-12">

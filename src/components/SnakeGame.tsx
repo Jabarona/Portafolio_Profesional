@@ -397,6 +397,42 @@ export const SnakeGame = () => {
             <span>{t('snake.desktopHint')}</span>
           </div>
         </div>
+
+        {/* Skill Stack Categorization (Moved from About) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-4xl mt-24"
+        >
+          <div className="space-y-6 bg-surface-container-high p-8 rounded-2xl border border-outline-variant/5 hover:border-primary/20 transition-colors">
+            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary text-center md:text-left">{t('about.arch')}</h4>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> Microservices</li>
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> Clean Architecture</li>
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> RESTful APIs & gRPC</li>
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> Agile / Scrum</li>
+            </ul>
+          </div>
+          <div className="space-y-6 bg-surface-container-high p-8 rounded-2xl border border-outline-variant/5 hover:border-primary/20 transition-colors">
+            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary text-center md:text-left">{t('about.data')}</h4>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> Apache PySpark</li>
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> Pandas / NumPy</li>
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> TensorFlow</li>
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> GraphQL / Apollo</li>
+            </ul>
+          </div>
+          <div className="space-y-6 bg-surface-container-high p-8 rounded-2xl border border-outline-variant/5 hover:border-primary/20 transition-colors">
+            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary text-center md:text-left">{t('about.devops')}</h4>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> CI/CD Pipelines</li>
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> Docker / Kubernetes</li>
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> Terraform</li>
+              <li className="flex items-center gap-3 text-sm font-medium"><span className="w-2 h-2 bg-primary-container rounded-full"></span> AWS / GCP</li>
+            </ul>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
