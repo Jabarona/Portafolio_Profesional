@@ -204,10 +204,10 @@ export const Contact = () => {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Code2, label: 'GitHub', value: '/Jabarona', link: 'https://github.com/Jabarona' },
-                { icon: Briefcase, label: 'LinkedIn', value: '/in/jabarona', link: 'https://www.linkedin.com/in/jabarona' },
-                { icon: FaWhatsapp, label: 'WhatsApp', value: 'Enviar mensaje', link: 'https://wa.me/5693108550' },
-                { icon: Mail, label: 'Email', value: 'Contactar', link: 'mailto:jabarona@example.com' }
+                { icon: Code2, label: 'GitHub', value: 'Ver Repositorio', link: 'https://github.com/Jabarona' },
+                { icon: Briefcase, label: 'LinkedIn', value: 'Ver Perfil', link: 'https://www.linkedin.com/in/jarvi-barona-burbano-4a0998252' },
+                { icon: FaWhatsapp, label: 'WhatsApp', value: 'Enviar Mensaje', link: 'https://wa.me/5693108550' },
+                { icon: Mail, label: 'Email', value: 'Escribir Correo', link: 'mailto:jarvistevel@hotmail.com' }
               ].map((social, idx) => {
                 const Icon = social.icon;
                 return (
