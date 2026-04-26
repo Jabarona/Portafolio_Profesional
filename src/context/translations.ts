@@ -20,7 +20,6 @@ export const translations = {
     'hero.status.title': 'Foco Actual:',
     'hero.status.1': 'Certificación DP-600',
     'hero.status.2': 'Agente IA (Python/LLM)',
-    'hero.status.3': 'Arquitectura Cloud',
 
     // SnakeGame
     'snake.title': '¡Juego Terminado!',
@@ -107,7 +106,6 @@ export const translations = {
     'hero.status.title': 'Current Focus:',
     'hero.status.1': 'DP-600 Certification',
     'hero.status.2': 'AI Agent (Python/LLM)',
-    'hero.status.3': 'Cloud Architecture',
 
     // SnakeGame
     'snake.title': 'Game Over!',

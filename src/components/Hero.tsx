@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Cloud, BookOpen, Bot } from 'lucide-react';
+import { BookOpen, Bot } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
@@ -74,10 +74,6 @@ export const Hero = () => {
               <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-colors cursor-default">
                 <Bot className="w-4 h-4 text-primary-container" />
                 <span className="text-xs font-mono font-medium text-on-surface/90">{t('hero.status.2' as any)}</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-colors cursor-default">
-                <Cloud className="w-4 h-4 text-primary-container" />
-                <span className="text-xs font-mono font-medium text-on-surface/90">{t('hero.status.3' as any)}</span>
               </div>
             </div>
           </motion.div>
