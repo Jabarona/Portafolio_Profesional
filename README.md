@@ -7,18 +7,25 @@ Este es un portafolio web interactivo, dinámico y de alto rendimiento, diseñad
 - **Frontend Framework:** React 19 con Vite (TypeScript)
 - **Estilos:** TailwindCSS (v4)
 - **Animaciones:** Framer Motion
-- **Iconos:** Lucide React
+- **Iconos:** Lucide React & React Icons
 - **Base de Datos (BaaS):** Firebase Firestore (para almacenar mensajes de contacto)
 - **Servicio de Correo:** Web3Forms (para recibir notificaciones de contacto al email)
 
 ## ✨ Características Principales
 
 1. **Soporte Multi-idioma (i18n):** Sistema de internacionalización nativo y ultra-rápido usando React Context que permite alternar entre Español e Inglés instantáneamente con botones en la barra de navegación. Recuerda la preferencia del usuario en `localStorage`.
-2. **Gamificación Integrada (Snake Skills):** La sección principal (*Hero*) cuenta con un mini-juego interactivo de la Serpiente (*Snake*). En lugar de simples listas de texto, el usuario atrapa iconos de tecnologías (Python, AWS, React, Django, etc.) para armar un "stack" de habilidades, mostrando un resumen visual e interactivo al perder. Cuenta con controles táctiles por gestos (Swipe) para dispositivos móviles y teclado para escritorio.
-3. **Interacciones Dinámicas:** 
-   - **Sobre Mí:** Fotografía de perfil interactiva que rota suavemente entre múltiples imágenes al hacer clic usando `framer-motion`.
-   - **Diseño Premium:** Paleta de colores cuidada, estilo glassmorphism, uso de tipografías modernas y adaptabilidad total a cualquier dispositivo.
-4. **Formulario de Contacto Totalmente Funcional:**
+
+2. **Gamificación Integrada (Snake Skills):** La sección principal cuenta con un mini-juego interactivo de la Serpiente (*Snake*). En lugar de simples listas de texto, el usuario atrapa iconos de tecnologías para armar un "stack" de habilidades, mostrando un resumen visual e interactivo al perder. Cuenta con controles táctiles por gestos (Swipe) para dispositivos móviles y teclado para escritorio.
+
+3. **Showcase de Proyectos (Bento Grid):** Los proyectos destacados se presentan mediante una moderna cuadrícula "Bento", optimizando el espacio visual y ofreciendo una experiencia inmersiva. Se muestran enlaces al repositorio, código fuente y tecnologías utilizadas.
+
+4. **Línea de Tiempo de Experiencia Profesional:** Una sección detallada de "Rastro de Carrera" que resalta roles de ingeniería orientados a impacto (Ej. Arquitecto Cloud, Ingeniero de Datos, Desarrollador Mobile), detallando de forma clara los logros y las arquitecturas manejadas en la industria real.
+
+5. **Interacciones Dinámicas y Diseño Premium:** 
+   - Fotografía de perfil interactiva que rota suavemente entre múltiples imágenes al hacer clic usando `framer-motion`.
+   - Paleta de colores cuidada, estilo *glassmorphism*, uso de tipografías modernas y adaptabilidad total (Responsive Design) a cualquier dispositivo.
+
+6. **Formulario de Contacto Totalmente Funcional:**
    - **Almacenamiento Persistente:** Los mensajes enviados se guardan en tiempo real en una base de datos NoSQL (Firebase Firestore).
    - **Notificaciones por Correo:** Se envía un correo electrónico al propietario usando Web3Forms al momento de recibir un nuevo mensaje.
    - **Manejo de Estados:** Indicadores visuales de carga, validación y notificaciones bilingües de éxito/error.
