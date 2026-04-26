@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Send, CheckCircle, MapPin, Code2, Briefcase, MessageCircle, Mail } from 'lucide-react';
+import { Terminal, Send, CheckCircle, MapPin, Code2, Briefcase, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { useLanguage } from '../context/LanguageContext';
@@ -203,10 +204,10 @@ export const Contact = () => {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Code2, label: 'GitHub', value: '/LogicalArch' },
-                { icon: Briefcase, label: 'LinkedIn', value: '/in/logarch' },
-                { icon: MessageCircle, label: 'X / Twitter', value: '@logarch_dev' },
-                { icon: Mail, label: 'Email', value: 'root@sys.io' }
+                { icon: Code2, label: 'GitHub', value: '/Jabarona' },
+                { icon: Briefcase, label: 'LinkedIn', value: '/in/jabarona' },
+                { icon: FaWhatsapp, label: 'WhatsApp', value: '+56 9 XXXX XXXX' },
+                { icon: Mail, label: 'Email', value: 'jabarona@...' }
               ].map((social, idx) => {
                 const Icon = social.icon;
                 return (
