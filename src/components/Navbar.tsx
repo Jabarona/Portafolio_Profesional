@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import type { TranslationKey } from '../context/translations';
 
 export const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -25,9 +26,9 @@ export const Navbar = () => {
             <a
               key={item}
               className="font-headline tracking-tight text-sm uppercase transition-all duration-300 text-on-surface/70 hover:text-primary-container active:scale-95"
-              href={`#${t(`nav.${item}` as any).toLowerCase().replace(' ', '-')}`}
+              href={`#${t(`nav.${item}` as TranslationKey).toLowerCase().replace(' ', '-')}`}
             >
-              {t(`nav.${item}` as any)}
+              {t(`nav.${item}` as TranslationKey)}
             </a>
           ))}
         </motion.div>

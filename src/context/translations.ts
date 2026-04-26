@@ -78,11 +78,8 @@ export const translations = {
     'contact.send': 'Transmitir Datos',
     'contact.sending': 'Transmitiendo...',
     'contact.success': 'Transmisión completada exitosamente.',
-    'contact.success1': 'Transmisión Exitosa',
-    'contact.success2': 'He recibido tus datos. Iniciaré contacto pronto.',
 
     // Footer
-    'footer.desc': 'Diseñando sistemas que escalan.',
     'footer.rights': 'Todos los derechos reservados.'
   },
   en: {
@@ -164,11 +161,8 @@ export const translations = {
     'contact.send': 'Transmit Data',
     'contact.sending': 'Transmitting...',
     'contact.success': 'Transmission completed successfully.',
-    'contact.success1': 'Transmission Successful',
-    'contact.success2': 'I have received your data. I will initiate contact soon.',
 
     // Footer
-    'footer.desc': 'Architecting systems that scale.',
     'footer.rights': 'All rights reserved.'
   }
 };

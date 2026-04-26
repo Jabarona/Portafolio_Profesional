@@ -61,6 +61,7 @@ export const SnakeGame = () => {
     setScore(0);
     setStatus('playing');
     setFood(generateFood(INITIAL_SNAKE));
+    setShowGameOverSkills(false);
   };
 
   const handleKeyPress = useCallback((e: KeyboardEvent) => {
@@ -161,8 +162,6 @@ export const SnakeGame = () => {
         setShowGameOverSkills(true);
       }, 5000);
       return () => clearTimeout(timer);
-    } else {
-      setShowGameOverSkills(false);
     }
   }, [status]);
 
