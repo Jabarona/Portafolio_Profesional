@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Cloud, Database } from 'lucide-react';
+import { Cloud, BookOpen, Bot } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
@@ -26,8 +26,6 @@ export const Hero = () => {
     const timer3 = setTimeout(() => setTerminalLines(3), 2800);
     const timer4 = setTimeout(() => setTerminalLines(4), 3800);
     const timer5 = setTimeout(() => setTerminalLines(5), 4800);
-    const timer6 = setTimeout(() => setTerminalLines(6), 5800);
-    const timer7 = setTimeout(() => setTerminalLines(7), 6800);
 
     return () => {
       clearTimeout(timer1);
@@ -35,8 +33,6 @@ export const Hero = () => {
       clearTimeout(timer3);
       clearTimeout(timer4);
       clearTimeout(timer5);
-      clearTimeout(timer6);
-      clearTimeout(timer7);
     };
   }, []);
 
@@ -68,18 +64,21 @@ export const Hero = () => {
             {t('hero.subtitle')}
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-4">
-            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 hover:border-primary/20 transition-colors cursor-default">
-              <Terminal className="w-4 h-4 text-primary-container" />
-              <span className="text-xs font-mono text-on-surface/80">uptime: +2 años exp</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 hover:border-primary/20 transition-colors cursor-default">
-              <Database className="w-4 h-4 text-primary-container" />
-              <span className="text-xs font-mono text-on-surface/80">stack: Data & AI</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 hover:border-primary/20 transition-colors cursor-default">
-              <Cloud className="w-4 h-4 text-primary-container" />
-              <span className="text-xs font-mono text-on-surface/80">cloud: Azure/GCP</span>
+          <motion.div variants={itemVariants} className="flex flex-col gap-3 pt-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">{t('hero.status.title' as any)}</p>
+            <div className="flex flex-wrap gap-3">
+              <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-colors cursor-default">
+                <BookOpen className="w-4 h-4 text-primary-container" />
+                <span className="text-xs font-mono font-medium text-on-surface/90">{t('hero.status.1' as any)}</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-colors cursor-default">
+                <Bot className="w-4 h-4 text-primary-container" />
+                <span className="text-xs font-mono font-medium text-on-surface/90">{t('hero.status.2' as any)}</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-colors cursor-default">
+                <Cloud className="w-4 h-4 text-primary-container" />
+                <span className="text-xs font-mono font-medium text-on-surface/90">{t('hero.status.3' as any)}</span>
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -123,23 +122,13 @@ export const Hero = () => {
                   </motion.div>
                 )}
                 {terminalLines >= 5 && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-on-surface-variant font-medium">
-                    {t('hero.terminal.task1' as any)}
-                  </motion.div>
-                )}
-                {terminalLines >= 6 && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-on-surface-variant font-medium">
-                    {t('hero.terminal.task2' as any)}
-                  </motion.div>
-                )}
-                {terminalLines >= 7 && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-primary-container font-bold">
                     {t('hero.terminal.status')}
                   </motion.div>
                 )}
                 
                 {/* Blinking Cursor */}
-                {terminalLines < 7 && (
+                {terminalLines < 5 && (
                   <motion.div 
                     animate={{ opacity: [1, 0] }} 
                     transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }} 
