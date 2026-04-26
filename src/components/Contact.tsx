@@ -210,12 +210,13 @@ export const Contact = () => {
                 { icon: Mail, label: 'Email', value: 'Escribir Correo', link: 'mailto:jarvistevel@hotmail.com' }
               ].map((social, idx) => {
                 const Icon = social.icon;
+                const isMailto = social.link.startsWith('mailto:');
                 return (
                   <motion.a
                     key={idx}
                     href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={isMailto ? "_self" : "_blank"}
+                    rel={isMailto ? "" : "noopener noreferrer"}
                     whileHover={{ y: -2 }}
                     className="p-6 bg-surface-container-low rounded-xl border border-outline-variant/5 flex items-center gap-4 group transition-all hover:bg-surface-container-high hover:border-primary/20 cursor-pointer"
                   >
