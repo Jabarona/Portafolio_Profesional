@@ -55,9 +55,8 @@ export const translations = {
 
 
     // About
-    'about.title1': 'Ingeniería en Bases',
-    'about.title2': 'Digitales',
-    'about.desc': 'Soy un Ingeniero de Software Senior enfocado en la intersección de la infraestructura y la fiabilidad del producto. Mi enfoque se basa en el rigor técnico y la claridad arquitectónica.',
+    'about.title1': 'Ingeniero Informático',
+    'about.desc': 'Ingeniero Informático con una visión integral de la tecnología, especializado en el desarrollo de soluciones Full Stack de alto impacto y la gestión de arquitecturas Cloud. Mi enfoque combina el pensamiento analítico con una sólida base en Ciberseguridad y Gobernanza de Datos, permitiéndome diseñar sistemas que no solo son funcionales, sino seguros y escalables.\n\nCuento con una probada capacidad de autogestión y liderazgo en proyectos tecnológicos complejos, desde el análisis de requerimientos críticos hasta el despliegue productivo. Mi experiencia abarca la optimización de procesos mediante la ingeniería de datos y la contenedorización, siempre orientado a la mejora continua y a la entrega de software de alta calidad que resuelva necesidades reales de negocio.',
     'about.arch': 'Arquitectura & Metodologías',
     'about.data': 'Datos & Librerías',
     'about.devops': 'DevOps & Cloud',
@@ -143,7 +142,7 @@ export const translations = {
     // About
     'about.title1': 'Engineering on Digital',
     'about.title2': 'Foundations',
-    'about.desc': 'I am a Senior Software Engineer focused on the intersection of infrastructure and product reliability. My approach is grounded in technical rigor and architectural clarity.',
+    'about.desc': 'Software Engineer with a comprehensive vision of technology, specialized in developing high-impact Full Stack solutions and managing Cloud architectures. My approach combines analytical thinking with a solid foundation in Cybersecurity and Data Governance, allowing me to design systems that are not only functional but also secure and scalable.\n\nI have a proven capacity for self-management and leadership in complex technological projects, from critical requirement analysis to production deployment. My experience encompasses process optimization through data engineering and containerization, always oriented towards continuous improvement and delivering high-quality software that solves real business needs.',
     'about.arch': 'Architecture & Methodologies',
     'about.data': 'Data & Libraries',
     'about.devops': 'DevOps & Cloud',
