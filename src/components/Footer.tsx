@@ -20,17 +20,6 @@ export const Footer = () => {
           © {new Date().getFullYear()} JB. {t('footer.rights')}
         </div>
 
-        <div className="flex gap-8">
-          {['GitHub', 'LinkedIn', 'Twitter', 'Email'].map((item) => (
-            <a
-              key={item}
-              className="font-body text-xs tracking-wide text-on-surface/50 hover:text-primary transition-all cursor-pointer"
-              href="#"
-            >
-              {item}
-            </a>
-          ))}
-        </div>
       </div>
     </footer>
   );
