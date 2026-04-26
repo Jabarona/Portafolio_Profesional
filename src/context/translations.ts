@@ -16,10 +16,9 @@ export const translations = {
     'hero.terminal.auth': '> Autenticando perfil... [OK]',
     'hero.terminal.role': '> Rol: Ingeniero Informático',
     'hero.terminal.modules': '> Cargando módulos de Arquitectura y Datos... [OK]',
+    'hero.terminal.task1': '> Proceso: Certificación DP-600... [RUNNING]',
+    'hero.terminal.task2': '> Proceso: Agente IA Judicial... [RUNNING]',
     'hero.terminal.status': '> Sistema En Línea.',
-    'hero.status.title': 'Estado Actual:',
-    'hero.status.1': 'Certificación DP-600 (En progreso)',
-    'hero.status.2': 'Agente IA para Sistema Judicial (Python/LLM)',
 
     // SnakeGame
     'snake.title': '¡Juego Terminado!',
@@ -102,10 +101,9 @@ export const translations = {
     'hero.terminal.auth': '> Authenticating profile... [OK]',
     'hero.terminal.role': '> Role: Software Engineer',
     'hero.terminal.modules': '> Loading Architecture and Data modules... [OK]',
+    'hero.terminal.task1': '> Process: DP-600 Certification... [RUNNING]',
+    'hero.terminal.task2': '> Process: Judicial AI Agent... [RUNNING]',
     'hero.terminal.status': '> System Online.',
-    'hero.status.title': 'Current Status:',
-    'hero.status.1': 'DP-600 Certification (In progress)',
-    'hero.status.2': 'Legal AI Agent for Judicial System (Python/LLM)',
 
     // SnakeGame
     'snake.title': 'Game Over!',

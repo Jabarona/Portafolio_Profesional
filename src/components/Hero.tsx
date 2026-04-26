@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Bot } from 'lucide-react';
+import { Terminal, Cloud } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
@@ -26,6 +26,8 @@ export const Hero = () => {
     const timer3 = setTimeout(() => setTerminalLines(3), 2800);
     const timer4 = setTimeout(() => setTerminalLines(4), 3800);
     const timer5 = setTimeout(() => setTerminalLines(5), 4800);
+    const timer6 = setTimeout(() => setTerminalLines(6), 5800);
+    const timer7 = setTimeout(() => setTerminalLines(7), 6800);
 
     return () => {
       clearTimeout(timer1);
@@ -33,6 +35,8 @@ export const Hero = () => {
       clearTimeout(timer3);
       clearTimeout(timer4);
       clearTimeout(timer5);
+      clearTimeout(timer6);
+      clearTimeout(timer7);
     };
   }, []);
 
@@ -64,21 +68,14 @@ export const Hero = () => {
             {t('hero.subtitle')}
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-col gap-3 pt-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-primary">{t('hero.status.title')}</p>
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-3 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/10 shadow-lg hover:border-primary/20 transition-colors group">
-                <div className="p-1.5 rounded-md bg-surface-container-high group-hover:bg-primary-container/20 transition-colors">
-                  <BookOpen className="w-4 h-4 text-primary-container" />
-                </div>
-                <span className="text-xs font-mono font-medium text-on-surface/90">{t('hero.status.1')}</span>
-              </div>
-              <div className="flex items-center gap-3 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/10 shadow-lg hover:border-primary/20 transition-colors group">
-                <div className="p-1.5 rounded-md bg-surface-container-high group-hover:bg-primary-container/20 transition-colors">
-                  <Bot className="w-4 h-4 text-primary-container" />
-                </div>
-                <span className="text-xs font-mono font-medium text-on-surface/90">{t('hero.status.2')}</span>
-              </div>
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">
+            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10">
+              <Terminal className="w-4 h-4 text-primary-container" />
+              <span className="text-xs font-mono text-on-surface/80">python --version 3.12</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10">
+              <Cloud className="w-4 h-4 text-primary-container" />
+              <span className="text-xs font-mono text-on-surface/80">aws-region: us-east-1</span>
             </div>
           </motion.div>
         </motion.div>
@@ -122,13 +119,23 @@ export const Hero = () => {
                   </motion.div>
                 )}
                 {terminalLines >= 5 && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-on-surface-variant font-medium">
+                    {t('hero.terminal.task1' as any)}
+                  </motion.div>
+                )}
+                {terminalLines >= 6 && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-on-surface-variant font-medium">
+                    {t('hero.terminal.task2' as any)}
+                  </motion.div>
+                )}
+                {terminalLines >= 7 && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-2 text-primary-container font-bold">
                     {t('hero.terminal.status')}
                   </motion.div>
                 )}
                 
                 {/* Blinking Cursor */}
-                {terminalLines < 5 && (
+                {terminalLines < 7 && (
                   <motion.div 
                     animate={{ opacity: [1, 0] }} 
                     transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }} 
