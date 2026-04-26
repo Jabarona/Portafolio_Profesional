@@ -73,23 +73,23 @@ export const About = () => {
                 
                 {[
                   {
-                    period: '2021 — PRESENTE',
+                    period: '2025',
                     title: t('job.1.title'),
-                    company: 'GlobalScale Systems',
+                    company: 'Tessco Chile',
                     desc: t('job.1.desc'),
                     active: true
                   },
                   {
-                    period: '2018 — 2021',
+                    period: '2025',
                     title: t('job.2.title'),
-                    company: 'DataStream Corp',
+                    company: 'SIGEPER (Ejército de Chile)',
                     desc: t('job.2.desc'),
-                    active: false
+                    active: true
                   },
                   {
-                    period: '2015 — 2018',
+                    period: '2024 — 2025',
                     title: t('job.3.title'),
-                    company: 'Incepto Solutions',
+                    company: 'DirtyJeans',
                     desc: t('job.3.desc'),
                     active: false
                   }
@@ -107,7 +107,7 @@ export const About = () => {
                       <span className={`text-[10px] font-mono uppercase ${job.active ? 'text-primary' : 'text-outline'}`}>{job.period}</span>
                       <h4 className="text-xl font-bold">{job.title}</h4>
                       <p className="text-sm text-primary/60 font-medium">{job.company}</p>
-                      <p className="text-on-surface-variant text-sm leading-relaxed mt-4">
+                      <p className="text-on-surface-variant text-sm leading-relaxed mt-4 whitespace-pre-line">
                         {job.desc}
                       </p>
                     </div>
