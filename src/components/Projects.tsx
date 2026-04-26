@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { Network, Lock, Activity, Smartphone, ArrowRight, ExternalLink } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { Network, Lock, Smartphone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Projects = () => {
