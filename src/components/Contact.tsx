@@ -204,15 +204,18 @@ export const Contact = () => {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Code2, label: 'GitHub', value: '/Jabarona' },
-                { icon: Briefcase, label: 'LinkedIn', value: '/in/jabarona' },
-                { icon: FaWhatsapp, label: 'WhatsApp', value: '+56 9 XXXX XXXX' },
-                { icon: Mail, label: 'Email', value: 'jabarona@...' }
+                { icon: Code2, label: 'GitHub', value: '/Jabarona', link: 'https://github.com/Jabarona' },
+                { icon: Briefcase, label: 'LinkedIn', value: '/in/jabarona', link: 'https://www.linkedin.com/in/jabarona' },
+                { icon: FaWhatsapp, label: 'WhatsApp', value: '+56 9 3108 550', link: 'https://wa.me/5693108550' },
+                { icon: Mail, label: 'Email', value: 'Contactar', link: 'mailto:jabarona@example.com' }
               ].map((social, idx) => {
                 const Icon = social.icon;
                 return (
                   <motion.a
                     key={idx}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ y: -2 }}
                     className="p-6 bg-surface-container-low rounded-xl border border-outline-variant/5 flex items-center gap-4 group transition-all hover:bg-surface-container-high hover:border-primary/20 cursor-pointer"
                   >
