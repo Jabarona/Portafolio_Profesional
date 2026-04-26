@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Cloud } from 'lucide-react';
+import { BookOpen, Bot } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
@@ -64,14 +64,21 @@ export const Hero = () => {
             {t('hero.subtitle')}
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">
-            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10">
-              <Terminal className="w-4 h-4 text-primary-container" />
-              <span className="text-xs font-mono text-on-surface/80">python --version 3.12</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg border border-outline-variant/10">
-              <Cloud className="w-4 h-4 text-primary-container" />
-              <span className="text-xs font-mono text-on-surface/80">aws-region: us-east-1</span>
+          <motion.div variants={itemVariants} className="flex flex-col gap-3 pt-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">{t('hero.status.title')}</p>
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center gap-3 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/10 shadow-lg hover:border-primary/20 transition-colors group">
+                <div className="p-1.5 rounded-md bg-surface-container-high group-hover:bg-primary-container/20 transition-colors">
+                  <BookOpen className="w-4 h-4 text-primary-container" />
+                </div>
+                <span className="text-xs font-mono font-medium text-on-surface/90">{t('hero.status.1')}</span>
+              </div>
+              <div className="flex items-center gap-3 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/10 shadow-lg hover:border-primary/20 transition-colors group">
+                <div className="p-1.5 rounded-md bg-surface-container-high group-hover:bg-primary-container/20 transition-colors">
+                  <Bot className="w-4 h-4 text-primary-container" />
+                </div>
+                <span className="text-xs font-mono font-medium text-on-surface/90">{t('hero.status.2')}</span>
+              </div>
             </div>
           </motion.div>
         </motion.div>
