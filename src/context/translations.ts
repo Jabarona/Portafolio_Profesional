@@ -40,7 +40,7 @@ export const translations = {
     // Projects
     'projects.title1': 'Proyectos',
     'projects.title2': 'Destacados',
-    'projects.subtitle': 'Una colección curada de proyectos de infraestructura, sistemas distribuidos y contribuciones open-source.',
+    'projects.subtitle': 'Una muestra de mis proyectos más recientes.',
     'projects.repoCount': 'Repositorios: 3',
     'projects.viewBtn': 'Ver Proyecto',
     'projects.srcBtn': 'Código Fuente',
@@ -56,12 +56,13 @@ export const translations = {
 
     // About
     'about.title1': 'Ingeniero Informático',
-    'about.desc': 'Ingeniero Informático con una visión integral de la tecnología, especializado en el desarrollo de soluciones Full Stack de alto impacto y la gestión de arquitecturas Cloud. Mi enfoque combina el pensamiento analítico con una sólida base en Ciberseguridad y Gobernanza de Datos, permitiéndome diseñar sistemas que no solo son funcionales, sino seguros y escalables.\n\nCuento con una probada capacidad de autogestión y liderazgo en proyectos tecnológicos complejos, desde el análisis de requerimientos críticos hasta el despliegue productivo. Mi experiencia abarca la optimización de procesos mediante la ingeniería de datos y la contenedorización, siempre orientado a la mejora continua y a la entrega de software de alta calidad que resuelva necesidades reales de negocio.',
+    'about.title2': ' Python, SQL, ETL & Cloud',
+    'about.desc': 'Soy un Ingeniero Informático apasionado por construir soluciones tecnológicas que no solo funcionen, sino que escalen y aporten valor real. Mi trayectoria se ha centrado en el desarrollo Full Stack, con especial énfasis en el ecosistema JavaScript/TypeScript (Next.js, Node.js), y en la arquitectura de datos de alto rendimiento.\n\nA lo largo de mi carrera, he tenido el desafío de liderar la digitalización de procesos críticos, como el sistema de gestión para la Reserva Militar en el Ejército de Chile, donde diseñé infraestructuras de datos bajo estrictos estándares de seguridad y gobernanza. También he desarrollado plataformas de e-commerce robustas como Tessco Chile, optimizando la experiencia del usuario y la eficiencia operativa mediante integraciones complejas y arquitecturas modernas.\n\nMi enfoque actual combina la agilidad del desarrollo web con la potencia de la Ingeniería de Datos, especializándome en herramientas como PySpark, Docker y Microsoft Fabric. Me motiva transformar problemas complejos en sistemas simples, seguros y eficientes, manteniendo siempre un aprendizaje continuo para estar a la vanguardia tecnológica.',
     'about.arch': 'Arquitectura & Metodologías',
     'about.data': 'Datos & Librerías',
     'about.devops': 'DevOps & Cloud',
-    'about.trace1': 'Rastro de',
-    'about.trace2': 'Carrera',
+    'about.trace1': 'Experiencia',
+    'about.trace2': 'Profesional',
     'job.1.title': 'Ingeniero Full Stack & Arquitecto Cloud',
     'job.1.desc': '• Lideré el desarrollo de una plataforma e-commerce escalable con Next.js y React, optimizando métricas de SEO y conversión de usuarios.\n• Diseñé e implementé una arquitectura backend robusta orientada a microservicios utilizando Node.js y Docker para asegurar alta disponibilidad.\n• Administré y optimicé bases de datos PostgreSQL para transacciones críticas, gestión de inventario y pedidos.\n• Integré pasarelas de pago seguras (Mercado Pago) e implementé pipelines de despliegue continuo (CI/CD) para el entorno productivo.',
     'job.2.title': 'Ingeniero de Datos & Desarrollador Python',
@@ -71,13 +72,13 @@ export const translations = {
 
     // Contact
     'contact.title1': 'Iniciar',
-    'contact.title2': 'Secuencia',
-    'contact.desc': '¿Interesado en colaborar o discutir sobre arquitectura de sistemas?',
-    'contact.name': 'Identificador (Nombre)',
-    'contact.email': 'Enlace de Comunicación (Email)',
+    'contact.title2': 'Contacto',
+    'contact.desc': '¿Tienes un proyecto en mente o quieres saber más de mí? ¡Hablemos!',
+    'contact.name': 'Nombre',
+    'contact.email': 'Email',
     'contact.phone': 'Número de Teléfono',
-    'contact.msg': 'Carga Útil (Mensaje)',
-    'contact.send': 'Transmitir Datos',
+    'contact.msg': 'Mensaje',
+    'contact.send': 'Enviar Mensaje',
     'contact.sending': 'Transmitiendo...',
     'contact.success': 'Transmisión completada exitosamente.',
 
@@ -140,14 +141,14 @@ export const translations = {
 
 
     // About
-    'about.title1': 'Engineering on Digital',
-    'about.title2': 'Foundations',
-    'about.desc': 'Software Engineer with a comprehensive vision of technology, specialized in developing high-impact Full Stack solutions and managing Cloud architectures. My approach combines analytical thinking with a solid foundation in Cybersecurity and Data Governance, allowing me to design systems that are not only functional but also secure and scalable.\n\nI have a proven capacity for self-management and leadership in complex technological projects, from critical requirement analysis to production deployment. My experience encompasses process optimization through data engineering and containerization, always oriented towards continuous improvement and delivering high-quality software that solves real business needs.',
+    'about.title1': 'Computer Engineer',
+    'about.title2': ' Python, SQL, ETL & Cloud',
+    'about.desc': 'I am a Computer Engineer passionate about building technological solutions that not only work but scale and deliver real value. My career has focused on Full Stack development, with special emphasis on the JavaScript/TypeScript ecosystem (Next.js, Node.js), and high-performance data architecture.\n\nThroughout my career, I have had the challenge of leading the digitization of critical processes, such as the management system for the Military Reserve in the Chilean Army, where I designed data infrastructures under strict security and governance standards. I have also developed robust e-commerce platforms like Tessco Chile, optimizing user experience and operational efficiency through complex integrations and modern architectures.\n\nMy current focus combines the agility of web development with the power of Data Engineering, specializing in tools like PySpark, Docker, and Microsoft Fabric. I am motivated by transforming complex problems into simple, secure, and efficient systems, always maintaining continuous learning to stay at the technological forefront.',
     'about.arch': 'Architecture & Methodologies',
     'about.data': 'Data & Libraries',
     'about.devops': 'DevOps & Cloud',
-    'about.trace1': 'Career',
-    'about.trace2': 'Trace',
+    'about.trace1': 'Professional',
+    'about.trace2': 'Experience',
     'job.1.title': 'Full Stack Engineer & Cloud Architect',
     'job.1.desc': '• Led the development of a scalable e-commerce platform using Next.js and React, optimizing SEO metrics and user conversion rates.\n• Designed and implemented a robust microservices-oriented backend architecture using Node.js and Docker to ensure high availability.\n• Administered and optimized PostgreSQL databases for critical transactions, inventory, and order management.\n• Integrated secure payment gateways (Mercado Pago) and implemented CI/CD pipelines for the production environment.',
     'job.2.title': 'Data Engineer & Python Developer',
@@ -157,15 +158,15 @@ export const translations = {
 
     // Contact
     'contact.title1': 'Initiate',
-    'contact.title2': 'Sequence',
-    'contact.desc': 'Interested in collaborating or discussing systems architecture?',
-    'contact.name': 'Identifier (Name)',
-    'contact.email': 'Comms Link (Email)',
+    'contact.title2': 'Contact',
+    'contact.desc': 'Do you have a project in mind or want to know more about me? Let\'s talk!',
+    'contact.name': 'Name',
+    'contact.email': 'Email',
     'contact.phone': 'Phone Number',
-    'contact.msg': 'Payload (Message)',
-    'contact.send': 'Transmit Data',
-    'contact.sending': 'Transmitting...',
-    'contact.success': 'Transmission completed successfully.',
+    'contact.msg': 'Message',
+    'contact.send': 'Send Message',
+    'contact.sending': 'Sending...',
+    'contact.success': 'Message sent successfully.',
 
     // Footer
     'footer.rights': 'All rights reserved.'

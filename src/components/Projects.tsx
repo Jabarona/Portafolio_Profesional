@@ -50,7 +50,7 @@ export const Projects = () => {
       title: t('project.2.title'),
       desc: t('project.2.desc'),
       tech: ['Python', 'Django', 'PySpark', 'Pandas', 'PostgreSQL'],
-      repoLink: '#',
+      repoLink: 'https://github.com/Jabarona/PROYECTO-SIGEPER---RESERVA-MILITAR.git',
       webLink: '',
       icon: <Lock className="w-10 h-10 text-primary-container drop-shadow-[0_0_15px_rgba(var(--primary-container),0.5)]" />,
       bgImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80"
@@ -59,7 +59,7 @@ export const Projects = () => {
       title: t('project.3.title'),
       desc: t('project.3.desc'),
       tech: ['React Native', 'TypeScript', 'Node.js', 'Docker', 'PostgreSQL'],
-      repoLink: '#',
+      repoLink: 'https://github.com/Jabarona/PROYECTO-SIGEPER---RESERVA-MILITAR.git',
       webLink: '',
       icon: <Smartphone className="w-10 h-10 text-primary-container drop-shadow-[0_0_15px_rgba(var(--primary-container),0.5)]" />,
       bgImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80"

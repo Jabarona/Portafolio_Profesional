@@ -1,50 +1,36 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import profileImg1 from '../assets/JarviBarona.jpeg';
-import profileImg2 from '../assets/Santiago.webp';
-import profileImg3 from '../assets/hero.png';
 import { useLanguage } from '../context/LanguageContext';
-
-const PHOTOS = [profileImg1, profileImg2, profileImg3];
 
 export const About = () => {
   const { t } = useLanguage();
-  const [photoIndex, setPhotoIndex] = useState(0);
 
-  const handlePhotoClick = () => {
-    setPhotoIndex((prev) => (prev + 1) % PHOTOS.length);
-  };
   return (
     <section className="py-32 px-8 overflow-hidden" id="sobre-mí">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="lg:col-span-5 relative"
           >
             <div className="sticky top-32">
-              <div className="relative aspect-square max-w-md mx-auto">
+              <div className="relative aspect-[4/5] max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-xl rotate-6 transition-transform duration-500 hover:rotate-12"></div>
                 <div className="absolute inset-0 border border-primary/20 rounded-xl -rotate-3 transition-transform duration-500 hover:-rotate-6"></div>
-                <div 
-                  className="relative h-full w-full overflow-hidden rounded-xl bg-surface-container-high shadow-2xl cursor-pointer group"
-                  onClick={handlePhotoClick}
+                <div
+                  className="relative h-full w-full overflow-hidden rounded-xl bg-surface-container-high shadow-2xl group"
                 >
-                  <AnimatePresence mode="wait">
-                    <motion.img 
-                      key={photoIndex}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 1.05 }}
-                      transition={{ duration: 0.4 }}
-                      className="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" 
-                      alt="Professional portrait" 
-                      src={PHOTOS[photoIndex]} 
-                    />
-                  </AnimatePresence>
+                  <motion.img
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full h-full object-cover mix-blend-normal md:mix-blend-luminosity md:group-hover:mix-blend-normal transition-all duration-700"
+                    alt="Professional portrait"
+                    src={profileImg1}
+                  />
                 </div>
               </div>
               <div className="mt-12 space-y-6">
@@ -60,7 +46,7 @@ export const About = () => {
 
             {/* Career Trace Timeline */}
             <div className="space-y-12">
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -68,9 +54,9 @@ export const About = () => {
               >
                 {t('about.trace1')} <span className="text-primary-container">{t('about.trace2')}</span>
               </motion.h3>
-              
+
               <div className="relative pl-8 border-l border-outline-variant/30 space-y-16">
-                
+
                 {[
                   {
                     period: '2025',
@@ -94,7 +80,7 @@ export const About = () => {
                     active: false
                   }
                 ].map((job, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -113,7 +99,7 @@ export const About = () => {
                     </div>
                   </motion.div>
                 ))}
-                
+
               </div>
             </div>
           </div>

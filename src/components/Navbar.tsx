@@ -11,9 +11,11 @@ export const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-xl font-bold tracking-tighter text-primary font-headline"
+          className="flex items-center"
         >
-          JB
+          <a href="#" className="flex items-center justify-center hover:scale-105 transition-transform duration-300">
+            <img src="/logo.svg" alt="Jarvi Barona Logo" className="w-11 h-11 drop-shadow-[0_0_8px_rgba(0,229,255,0.3)]" />
+          </a>
         </motion.div>
 
         <motion.div
