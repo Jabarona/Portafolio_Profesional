@@ -21,4 +21,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTAFOLIO_PROFESIONAL_8E537 }}'
           projectId: portafolio-profesional-8e537
           channelId: live
-          target: production
+          siteId: portafolio-profesional-8e537
